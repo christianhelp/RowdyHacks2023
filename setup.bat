@@ -7,4 +7,5 @@ if exist env\ rmdir /s /q env
 python -m venv %cd%\env
 call .\env\Scripts\activate
 pip install PyQt6
+pip install pandas
 call .\env\Scripts\deactivate.bat
