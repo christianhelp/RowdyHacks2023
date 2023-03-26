@@ -9,7 +9,18 @@ class Backend(QObject):
     
     @pyqtSlot(str)
     def search(self, str):
-        print(str)
+        threadDriver(str)
+
+
+
+def drawState(stateName,matchPercent):
+    print('str', str)
+    stateObject = False
+    if usMap.findChild(QObject, str) is None:
+        stateObject = True
+    print(stateObject)
+
+
 
 app = QGuiApplication(sys.argv)
 engine = QQmlApplicationEngine()
@@ -20,5 +31,14 @@ engine.rootContext().setContextProperty("backend", backend)
 
 engine.quit.connect(app.quit)
 engine.load('./ui/main.ui.qml')
+
+usMap = engine.rootObjects()[0].children()[0].children()[0]
+print('usMap', type(usMap))
+
+states = usMap.children()
+print('states', type(states))
+
+for state in states:
+    print('state', type(state))
 
 sys.exit(app.exec())
