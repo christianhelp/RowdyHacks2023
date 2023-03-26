@@ -20,6 +20,24 @@ ApplicationWindow{
 		height: 900
 		color: "#494545"
 
+		Label {
+			id: label
+			y: 8
+			text: qsTr("r/Slang")
+			color: "#ffffff"
+			anchors.left: parent.left
+			anchors.right: parent.right
+			anchors.top: parent.top
+			anchors.bottom: mapImage.top
+			horizontalAlignment: Text.AlignHCenter
+			verticalAlignment: Text.AlignVCenter
+			anchors.rightMargin: 0
+			anchors.leftMargin: 0
+			anchors.bottomMargin: 0
+			anchors.topMargin: 0
+			font.pointSize: 48
+		}
+
 		Image {
 			id: mapImage
 			anchors.left: parent.left
@@ -45,36 +63,21 @@ ApplicationWindow{
 			anchors.topMargin: 50
 			anchors.rightMargin: 150
 			anchors.leftMargin: 150
+			focus: true
+			Keys.onReturnPressed: getStateWordFrequency(searchBox.text)
 
 			TextField {
 				id: searchBox
 				width: 910
-				text: "Search..."
+				placeholderText: "Search..."
 			}
 
 			Button {
 				id: button
 				x: 920
 				text: qsTr("Search")
+				onClicked: getStateWordFrequency(searchBox.text)
 			}
-		}
-
-		Label {
-			id: label
-			y: 8
-			text: qsTr("r/Slang")
-			color: "#ffffff"
-			anchors.left: parent.left
-			anchors.right: parent.right
-			anchors.top: parent.top
-			anchors.bottom: mapImage.top
-			horizontalAlignment: Text.AlignHCenter
-			verticalAlignment: Text.AlignVCenter
-			anchors.rightMargin: 0
-			anchors.leftMargin: 0
-			anchors.bottomMargin: 0
-			anchors.topMargin: 0
-			font.pointSize: 48
 		}
 	}
 }

@@ -3,6 +3,8 @@ import sys
 from PyQt6.QtGui import QGuiApplication
 from PyQt6.QtQml import QQmlApplicationEngine
 
+def getStateWordFrequency(stateName)
+    print(stateName)
 
 app = QGuiApplication(sys.argv)
 
