@@ -2,7 +2,6 @@ import pandas as pd
 import snscrape.modules.reddit as snReddit
 
 
-
 def findfrequency(state, word):
     try:
         print(f'Ran at state {state}')
@@ -14,7 +13,7 @@ def findfrequency(state, word):
         numberofmatches = 0
 
         for post in scraper.get_items():
-
+            # Stop because it gets mad it will fingerprinting
             if i > 100:
                 break
 
@@ -48,9 +47,11 @@ def findfrequency(state, word):
         print(f'{state}: Total number of Matches with the word {numberofmatches}')
         # return numberofmatches
         # getstatewordfrequency(wordToQueryFor)
+        return numberofmatches / 100
     except:
         print(f'Error! {state} did not finish running!')
+        return None
+
 
 def getstatewordfrequency(word):
-
     findfrequency(word, "Texas")
