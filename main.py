@@ -3,23 +3,23 @@ import sys
 from PyQt6.QtGui import QGuiApplication
 from PyQt6.QtQml import QQmlApplicationEngine
 from PyQt6.QtCore import QObject, pyqtSignal, pyqtSlot
+from threadDriver import driver
+
 
 class Backend(QObject):
     buttonClicked = pyqtSignal()
-    
+
     @pyqtSlot(str)
-    def search(self, str):
-        threadDriver(str)
+    def search(self, userInput):
+        driver(userInput)
 
 
-
-def drawState(stateName,matchPercent):
-    print('str', str)
+def drawState(stateName, matchPercent):
+    print('str', stateName)
     stateObject = False
-    if usMap.findChild(QObject, str) is None:
+    if usMap.findChild(QObject, stateName) is None:
         stateObject = True
     print(stateObject)
-
 
 
 app = QGuiApplication(sys.argv)
