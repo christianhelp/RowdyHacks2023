@@ -8,4 +8,5 @@ python -m venv %cd%\env
 call .\env\Scripts\activate
 pip install PyQt6
 pip install pandas
+pip install snscrape
 call .\env\Scripts\deactivate.bat
